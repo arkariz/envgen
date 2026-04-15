@@ -15,24 +15,23 @@ Packages with breaking changes:
 
 Packages with other changes:
 
- - [`envgen` - `v0.1.1`](#envgen---v011)
+ - [`envflare_cli` - `v0.1.2`](#envflare_cli---v012)
 
 ---
 
-#### `envgen` - `v0.1.1`
+#### `envflare_cli` - `v0.1.2`
 
- - **FEAT**: add help flag and usage information for CLI commands. ([d2b2b4ed](https://github.com/arkariz/envgen/commit/d2b2b4ede8593ea88cfc451a8255b6d02f6e0e89))
- - **FEAT**: add project structure with CLI commands and environment management. ([7ff66ea2](https://github.com/arkariz/envgen/commit/7ff66ea255fca93b7b341cbabe9caa12841750ad))
- - **DOCS**: update README with detailed usage instructions and examples. ([fd19d13c](https://github.com/arkariz/envgen/commit/fd19d13c8291b18d7924ad6b4fcac9b20fcba05e))
- - **DOCS**: add MIT License to the project. ([970b58fc](https://github.com/arkariz/envgen/commit/970b58fc3aae1be1ff6ab88a50b094c77ae9e856))
+ - **FEAT**: rename envgen to envflare_cli and update related references. ([60037068](https://github.com/arkariz/envflare_cli/commit/600370687350ef8dbd92fc09e20a4ed5f0ba5140))
+ - **FEAT**: add help flag and usage information for CLI commands. ([957f7768](https://github.com/arkariz/envflare_cli/commit/957f7768f4f76c02a6f999ade389b3a666a662e1))
+ - **FEAT**: add project structure with CLI commands and environment management. ([7ff66ea2](https://github.com/arkariz/envflare_cli/commit/7ff66ea255fca93b7b341cbabe9caa12841750ad))
+ - **DOCS**: update README with detailed usage instructions and examples. ([9cc7bf3e](https://github.com/arkariz/envflare_cli/commit/9cc7bf3e5545ba4b94c2699c6997c27b3f12ab97))
+ - **DOCS**: add MIT License to the project. ([a406674d](https://github.com/arkariz/envflare_cli/commit/a406674d4b4a2bd1e8eeb1f6e56553a18fb69967))
 
-## 0.1.1
+## 0.1.2
 
- - **FEAT**: add help flag and usage information for CLI commands. ([d2b2b4ed](https://github.com/arkariz/envgen/commit/d2b2b4ede8593ea88cfc451a8255b6d02f6e0e89))
- - **FEAT**: add project structure with CLI commands and environment management. ([7ff66ea2](https://github.com/arkariz/envgen/commit/7ff66ea255fca93b7b341cbabe9caa12841750ad))
- - **DOCS**: update README with detailed usage instructions and examples. ([fd19d13c](https://github.com/arkariz/envgen/commit/fd19d13c8291b18d7924ad6b4fcac9b20fcba05e))
- - **DOCS**: add MIT License to the project. ([970b58fc](https://github.com/arkariz/envgen/commit/970b58fc3aae1be1ff6ab88a50b094c77ae9e856))
+ - **FEAT**: rename envgen to envflare_cli and update related references. ([60037068](https://github.com/arkariz/envflare_cli/commit/600370687350ef8dbd92fc09e20a4ed5f0ba5140))
+ - **FEAT**: add help flag and usage information for CLI commands. ([957f7768](https://github.com/arkariz/envflare_cli/commit/957f7768f4f76c02a6f999ade389b3a666a662e1))
+ - **FEAT**: add project structure with CLI commands and environment management. ([7ff66ea2](https://github.com/arkariz/envflare_cli/commit/7ff66ea255fca93b7b341cbabe9caa12841750ad))
+ - **DOCS**: update README with detailed usage instructions and examples. ([9cc7bf3e](https://github.com/arkariz/envflare_cli/commit/9cc7bf3e5545ba4b94c2699c6997c27b3f12ab97))
+ - **DOCS**: add MIT License to the project. ([a406674d](https://github.com/arkariz/envflare_cli/commit/a406674d4b4a2bd1e8eeb1f6e56553a18fb69967))
 
-## 0.0.1
-
-* TODO: Describe initial release.
