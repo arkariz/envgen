@@ -1,8 +1,8 @@
-name: envgen
+name: envflare_cli
 description: "A tool to generate flavor environment variable files for Flutter projects using envied."
 version: 0.1.1
-homepage: https://github.com/arkariz/envgen
-repository: https://github.com/arkariz/envgen
+homepage: https://github.com/arkariz/envflare_cli
+repository: https://github.com/arkariz/envflare_cli
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
@@ -15,8 +15,11 @@ dev_dependencies:
   melos: ^7.5.1
   flutter_lints: ^6.0.0
 
+executables:
+  envflare: envflare
+
 melos:
-  repository: https://github.com/arkariz/envgen
+  repository: https://github.com/arkariz/envflare_cli
   useRootAsPackage: true
   command:
     version:

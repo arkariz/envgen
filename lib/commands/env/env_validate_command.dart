@@ -1,5 +1,5 @@
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class EnvValidateCommand implements BaseCommand {
   @override

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class SchemaField {
   final String key;

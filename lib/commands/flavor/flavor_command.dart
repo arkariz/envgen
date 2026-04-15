@@ -1,7 +1,7 @@
 
 import 'package:args/args.dart';
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class FlavorCommand implements BaseCommand {
   @override
@@ -26,14 +26,14 @@ class FlavorCommand implements BaseCommand {
     final sub = args.command;
 
     if (sub == null || args['help']) {
-      Logger.plain('Usage: envgen flavor <add|remove|list> [options]');
+      Logger.plain('Usage: envflare_cli flavor <add|remove|list> [options]');
       Logger.plain('');
       Logger.plain('Subcommands:');
       Logger.plain('  add <NAME>    Add a new flavor');
       Logger.plain('  remove <NAME>  Remove a flavor');
       Logger.plain('  list          List all flavors');
       Logger.plain('');
-      Logger.plain('Use "envgen flavor <subcommand> --help" for more information.');
+      Logger.plain('Use "envflare_cli flavor <subcommand> --help" for more information.');
       return;
     }
 

@@ -1,16 +1,16 @@
 import 'dart:io';
 import 'dart:convert';
 
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class Config {
-  static const path = '.envgen.json';
+  static const path = '.envflare_cli.json';
 
   static Map<String, dynamic> load() {
     final file = File(path);
 
     if (!file.existsSync()) {
-      throw CliException('Missing .envgen.json');
+      throw CliException('Missing .envflare_cli.json');
     }
 
     return jsonDecode(file.readAsStringSync());

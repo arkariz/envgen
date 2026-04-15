@@ -1,6 +1,6 @@
 import 'package:args/args.dart';
-import 'package:envgen/cli/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/cli/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class CliRunner {
   final CommandRegistry registry;
@@ -26,22 +26,22 @@ class CliRunner {
           if (command != null) {
             final subParser = ArgParser();
             command.configure(subParser);
-            Logger.plain('Usage: envgen $cmdName [options]');
+            Logger.plain('Usage: envflare_cli $cmdName [options]');
             Logger.plain('');
             Logger.plain(subParser.usage);
           }
         } else {
           // Show global help
-          Logger.plain('envgen - A CLI tool for managing Flutter environment variables');
+          Logger.plain('envflare_cli - A CLI tool for managing Flutter environment variables');
           Logger.plain('');
-          Logger.plain('Usage: envgen <command> [options]');
+          Logger.plain('Usage: envflare_cli <command> [options]');
           Logger.plain('');
           Logger.plain('Commands:');
           for (final cmd in registry.all) {
             Logger.plain('  ${cmd.name}');
           }
           Logger.plain('');
-          Logger.plain('Use "envgen <command> --help" for more information about a command.');
+          Logger.plain('Use "envflare_cli <command> --help" for more information about a command.');
         }
         return;
       }

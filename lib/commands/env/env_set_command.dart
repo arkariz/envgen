@@ -1,5 +1,5 @@
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class EnvSetCommand implements BaseCommand {
   @override
@@ -13,7 +13,7 @@ class EnvSetCommand implements BaseCommand {
   @override
   Future<void> execute(args) async {
     if (args.arguments.length < 2) {
-      throw CliException('Usage: envgen set <KEY> <VALUE>');
+      throw CliException('Usage: envflare_cli set <KEY> <VALUE>');
     }
 
     final key = args.arguments[0];

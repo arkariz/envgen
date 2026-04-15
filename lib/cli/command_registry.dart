@@ -1,4 +1,4 @@
-import 'package:envgen/commands/index.dart';
+import 'package:envflare_cli/commands/index.dart';
 
 class CommandRegistry {
   final Map<String, BaseCommand> _commands = {};

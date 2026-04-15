@@ -1,5 +1,5 @@
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class FlavorRemoveCommand implements BaseCommand {
   @override
@@ -11,7 +11,7 @@ class FlavorRemoveCommand implements BaseCommand {
   @override
   Future<void> execute(args) async {
     if (args.arguments.isEmpty) {
-      throw CliException('Usage: envgen flavor remove <NAME>');
+      throw CliException('Usage: envflare_cli flavor remove <NAME>');
     }
 
     final name = args.arguments.first;

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/core/index.dart';
 import 'package:path/path.dart';
 
 class EnvFile {

@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
-class EnvGenerateCommand implements BaseCommand {
+class envflare_clierateCommand implements BaseCommand {
   @override
   String get name => 'generate';
 

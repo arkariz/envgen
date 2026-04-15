@@ -1,4 +1,4 @@
-# envgen
+# envflare_cli
 
 A CLI tool to generate and manage flavor-based environment variable files for Flutter projects. Simplify environment configuration across different build flavors (e.g., development, staging, production) with schema validation and automated code generation.
 
@@ -37,12 +37,12 @@ Then run `flutter pub get` to install them.
 #### From pub.dev (Recommended)
 
 ```bash
-dart pub global activate envgen
+dart pub global activate envflare_cli
 ```
 
 Verify installation:
 ```bash
-envgen --help
+envflare --help
 ```
 
 ## Usage
@@ -51,74 +51,74 @@ envgen --help
 
 Start by initializing your project:
 ```bash
-envgen init
+envflare init
 ```
-This creates `.env.schema` and `.envgen.json` config files.
+This creates `.env.schema` and `.envflare_cli.json` config files.
 
 ### Manage Flavors
 
 Add a new flavor:
 ```bash
-envgen flavor add development
+envflare flavor add development
 ```
 
 List all flavors:
 ```bash
-envgen flavor list
+envflare flavor list
 ```
 
 Remove a flavor:
 ```bash
-envgen flavor remove development
+envflare flavor remove development
 ```
 
 ### Manage Environment Variables
 
 Add a new variable to schema and all flavors:
 ```bash
-envgen add API_URL
+envflare add API_URL
 ```
 
 Set value for a variable in a specific flavor:
 ```bash
-envgen set API_URL https://api.example.com --flavor development
+envflare set API_URL https://api.example.com --flavor development
 ```
 
 Set value for all flavors:
 ```bash
-envgen set DEBUG true
+envflare set DEBUG true
 ```
 
 List variables for a flavor:
 ```bash
-envgen list --flavor development
+envflare list --flavor development
 ```
 
 List all variables across flavors:
 ```bash
-envgen list
+envflare list
 ```
 
 Remove a variable from schema and all flavors:
 ```bash
-envgen remove API_URL
+envflare remove API_URL
 ```
 
 Sync variables across flavors (add missing ones):
 ```bash
-envgen sync
+envflare sync
 ```
 
 Validate configurations:
 ```bash
-envgen validate
+envflare validate
 ```
 
 ### Generate Code
 
 Generate secure Dart code using `envied` (requires dependencies above):
 ```bash
-envgen generate
+envflare generate
 ```
 This runs `build_runner` to create environment classes from your `.env` files.
 
@@ -126,32 +126,32 @@ This runs `build_runner` to create environment classes from your `.env` files.
 
 1. Initialize:
    ```bash
-   envgen init
+   envflare init
    ```
 
 2. Add flavors:
    ```bash
-   envgen flavor add dev
-   envgen flavor add prod
+   envflare flavor add dev
+   envflare flavor add prod
    ```
 
 3. Add variables:
    ```bash
-   envgen add API_BASE_URL
-   envgen add DEBUG_MODE
+   envflare add API_BASE_URL
+   envflare add DEBUG_MODE
    ```
 
 4. Set values:
    ```bash
-   envgen set API_BASE_URL https://dev.api.com --flavor dev
-   envgen set API_BASE_URL https://prod.api.com --flavor prod
-   envgen set DEBUG_MODE true --flavor dev
-   envgen set DEBUG_MODE false --flavor prod
+   envflare set API_BASE_URL https://dev.api.com --flavor dev
+   envflare set API_BASE_URL https://prod.api.com --flavor prod
+   envflare set DEBUG_MODE true --flavor dev
+   envflare set DEBUG_MODE false --flavor prod
    ```
 
 5. Generate code:
    ```bash
-   envgen generate
+   envflare generate
    ```
 
 ## File Structure
@@ -159,7 +159,7 @@ This runs `build_runner` to create environment classes from your `.env` files.
 After setup, your project will have:
 ```
 .env.schema          # Schema file with variable keys
-.envgen.json         # Config file with flavor list
+.envflare_cli.json         # Config file with flavor list
 .envs/
   dev.env           # Environment file for 'dev' flavor
   prod.env          # Environment file for 'prod' flavor

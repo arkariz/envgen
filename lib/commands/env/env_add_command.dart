@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class EnvAddCommand implements BaseCommand {
   @override
@@ -12,7 +12,7 @@ class EnvAddCommand implements BaseCommand {
   @override
   Future<void> execute(args) async {
     if (args.arguments.isEmpty) {
-      throw CliException('Usage: envgen add <KEY>');
+      throw CliException('Usage: envflare_cli add <KEY>');
     }
 
     final key = args.arguments.first;

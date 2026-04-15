@@ -1,4 +1,4 @@
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class Validator {
   static void validateAll() {

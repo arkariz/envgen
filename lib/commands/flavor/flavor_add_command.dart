@@ -1,6 +1,6 @@
 
-import 'package:envgen/commands/index.dart';
-import 'package:envgen/core/index.dart';
+import 'package:envflare_cli/commands/index.dart';
+import 'package:envflare_cli/core/index.dart';
 
 class FlavorAddCommand implements BaseCommand {
   @override
@@ -12,7 +12,7 @@ class FlavorAddCommand implements BaseCommand {
   @override
   Future<void> execute(args) async {
     if (args.arguments.isEmpty) {
-      throw CliException('Usage: envgen flavor add <NAME>');
+      throw CliException('Usage: envflare_cli flavor add <NAME>');
     }
 
     final name = args.arguments.first;

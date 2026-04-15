@@ -1,5 +1,5 @@
-import 'package:envgen/cli/index.dart';
-import 'package:envgen/commands/index.dart';
+import 'package:envflare_cli/cli/index.dart';
+import 'package:envflare_cli/commands/index.dart';
 
 void runCLI(List<String> args) {
   final registry = CommandRegistry()
@@ -10,7 +10,7 @@ void runCLI(List<String> args) {
     ..register(EnvListCommand())
     ..register(EnvSyncCommand())
     ..register(EnvValidateCommand())
-    ..register(EnvGenerateCommand())
+    ..register(envflare_clierateCommand())
     ..register(FlavorCommand());
 
   CliRunner(registry).run(args);
