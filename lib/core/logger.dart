@@ -7,6 +7,7 @@ class Logger {
   static void success(String msg) => _log(msg, LogLevel.success);
   static void warning(String msg) => _log(msg, LogLevel.warning);
   static void error(String msg) => _log(msg, LogLevel.error);
+  static void plain(String msg) => stdout.writeln(msg);
 
   static void _log(String msg, LogLevel level) {
     final icon = switch (level) {

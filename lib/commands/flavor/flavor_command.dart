@@ -9,6 +9,8 @@ class FlavorCommand implements BaseCommand {
 
   @override
   void configure(ArgParser parser) {
+    parser.addFlag('help', abbr: 'h');
+
     final addParser = parser.addCommand('add');
     FlavorAddCommand().configure(addParser);
 
@@ -23,8 +25,16 @@ class FlavorCommand implements BaseCommand {
   Future<void> execute(ArgResults args) async {
     final sub = args.command;
 
-    if (sub == null) {
-      throw CliException('Usage: envgen flavor <add|remove|list>');
+    if (sub == null || args['help']) {
+      Logger.plain('Usage: envgen flavor <add|remove|list> [options]');
+      Logger.plain('');
+      Logger.plain('Subcommands:');
+      Logger.plain('  add <NAME>    Add a new flavor');
+      Logger.plain('  remove <NAME>  Remove a flavor');
+      Logger.plain('  list          List all flavors');
+      Logger.plain('');
+      Logger.plain('Use "envgen flavor <subcommand> --help" for more information.');
+      return;
     }
 
     switch (sub.name) {
