@@ -1,0 +1,17 @@
+import 'package:envgen/cli/index.dart';
+import 'package:envgen/commands/index.dart';
+
+void runCLI(List<String> args) {
+  final registry = CommandRegistry()
+    ..register(InitCommand())
+    ..register(EnvAddCommand())
+    ..register(EnvRemoveCommand())
+    ..register(EnvSetCommand())
+    ..register(EnvListCommand())
+    ..register(EnvSyncCommand())
+    ..register(EnvValidateCommand())
+    ..register(EnvGenerateCommand())
+    ..register(FlavorCommand());
+
+  CliRunner(registry).run(args);
+}

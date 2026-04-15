@@ -1,0 +1,20 @@
+name: envgen
+description: "A tool to generate flavor environment variable files for Flutter projects using envied."
+version: 0.1.0
+homepage: https://github.com/arkariz/envgen
+publish_to: https://github.com/arkariz/envgen
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dev_dependencies:
+  melos: ^7.5.1
+
+melos:
+  repository: https://github.com/arkariz/envgen
+  useRootAsPackage: true
+  command:
+    version:
+      branch: main
+      includeCommitId: true
+      includeDate: true

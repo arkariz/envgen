@@ -1,0 +1,42 @@
+import 'dart:io';
+import 'package:envgen/commands/index.dart';
+import 'package:envgen/core/index.dart';
+
+class EnvAddCommand implements BaseCommand {
+  @override
+  String get name => 'add';
+
+  @override
+  void configure(parser) {}
+
+  @override
+  Future<void> execute(args) async {
+    if (args.arguments.isEmpty) {
+      throw CliException('Usage: envgen add <KEY>');
+    }
+
+    final key = args.arguments.first;
+
+    final schemaFile = File('.env.schema');
+
+    if (schemaFile.existsSync()) {
+      final exists = schemaFile
+          .readAsLinesSync()
+          .any((l) => l.trim() == key);
+
+      if (exists) {
+        throw CliException('Key "$key" already exists');
+      }
+    }
+
+    schemaFile.writeAsStringSync('\n$key', mode: FileMode.append);
+
+    for (final f in EnvFile.flavors()) {
+      final env = parseEnv(EnvFile.file(f));
+      env[key] = '';
+      writeEnv(EnvFile.file(f), env);
+    }
+
+    Logger.success('Added key: $key');
+  }
+}
