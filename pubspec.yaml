@@ -1,6 +1,6 @@
 name: envflare_cli
 description: "A tool to generate flavor environment variable files for Flutter projects using envied."
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/arkariz/envflare_cli
 repository: https://github.com/arkariz/envflare_cli
 
@@ -24,3 +24,4 @@ melos:
   command:
     version:
       branch: main
+      workspaceChangelog: false
