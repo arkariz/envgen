@@ -10,7 +10,7 @@ void runCLI(List<String> args) {
     ..register(EnvListCommand())
     ..register(EnvSyncCommand())
     ..register(EnvValidateCommand())
-    ..register(envflare_clierateCommand())
+    ..register(EnvGenerateCommand())
     ..register(FlavorCommand());
 
   CliRunner(registry).run(args);

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:envflare_cli/commands/index.dart';
 import 'package:envflare_cli/core/index.dart';
 
-class envflare_clierateCommand implements BaseCommand {
+class EnvGenerateCommand implements BaseCommand {
   @override
   String get name => 'generate';
 
