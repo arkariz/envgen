@@ -15,6 +15,31 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`envflare_cli` - `v0.1.3`](#envflare_cli---v013)
+
+---
+
+#### `envflare_cli` - `v0.1.3`
+
+ - **FEAT**: improve ENV files validation logic to collect and report missing or empty keys. ([c1193616](https://github.com/arkariz/envflare_cli/commit/c1193616eea761d172cdc6f0d036084c4084933e))
+
+## 0.1.3
+
+ - **FEAT**: improve ENV files validation logic to collect and report missing or empty keys. ([c1193616](https://github.com/arkariz/envflare_cli/commit/c1193616eea761d172cdc6f0d036084c4084933e))
+
+
+## 2026-04-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`envflare_cli` - `v0.1.2`](#envflare_cli---v012)
 
 ---
