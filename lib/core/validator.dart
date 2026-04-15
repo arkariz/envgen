@@ -1,6 +1,16 @@
 import 'package:envflare_cli/core/index.dart';
 
+/// Validation utilities for environment files.
+///
+/// Provides methods to validate that all required environment variables
+/// are present and non-empty in all flavor files according to the schema.
 class Validator {
+  /// Validates all environment files against the schema.
+  ///
+  /// Checks each flavor's environment file to ensure all schema-defined
+  /// keys are present and have non-empty values. Logs success for valid
+  /// flavors and throws [CliException] with detailed error information
+  /// for invalid flavors.
   static void validateAll() {
     final schema = Schema.load();
     final invalidFlavors = <String, List<String>>{};

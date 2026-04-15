@@ -2,11 +2,21 @@ import 'package:args/args.dart';
 import 'package:envflare_cli/cli/index.dart';
 import 'package:envflare_cli/core/index.dart';
 
+/// The main CLI runner for envflare_cli.
+///
+/// This class handles command parsing, execution, and error handling
+/// for the envflare CLI tool.
 class CliRunner {
+  /// The command registry containing all available commands.
   final CommandRegistry registry;
 
+  /// Creates a new CLI runner with the given command registry.
   CliRunner(this.registry);
 
+  /// Runs the CLI with the provided command line arguments.
+  ///
+  /// Parses arguments, executes the appropriate command, and handles errors.
+  /// Shows help information when requested or when no command is provided.
   Future<void> run(List<String> args) async {
     final parser = ArgParser();
     parser.addFlag('help', abbr: 'h', help: 'Show help');

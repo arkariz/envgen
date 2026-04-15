@@ -24,5 +24,3 @@ melos:
   command:
     version:
       branch: main
-      includeCommitId: true
-      includeDate: true

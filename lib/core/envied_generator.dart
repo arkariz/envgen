@@ -2,7 +2,16 @@ import 'dart:io';
 
 import 'package:envflare_cli/core/index.dart';
 
+/// Code generator for envied integration.
+///
+/// Generates Dart code that integrates with the envied package
+/// to provide type-safe access to environment variables.
 class EnviedGenerator {
+  /// Generates the env.dart file with envied annotations.
+  ///
+  /// Creates a Dart class that uses envied to load environment variables
+  /// for all configured flavors. The generated code provides type-safe
+  /// access to environment variables based on the current FLAVOR.
   static void generate() {
     final schema = Schema.load();
     final flavors = EnvFile.flavors();

@@ -1,5 +1,11 @@
 import 'dart:io';
 
+/// Parses an environment file into a key-value map.
+///
+/// Reads a .env file and converts each line in KEY=VALUE format
+/// into a map entry. Lines without '=' are ignored.
+///
+/// Returns an empty map if the file doesn't exist.
 Map<String, String> parseEnv(File file) {
   if (!file.existsSync()) return {};
 
