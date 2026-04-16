@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:envflare_cli/commands/index.dart';
 import 'package:envflare_cli/core/index.dart';
 
@@ -14,21 +12,11 @@ class WizardRemoveEnvKeyCommand implements BaseCommand {
 
   @override
   Future<void> execute(args) async {
+    Schema.load();
     Logger.plain('🗑️  Remove an environment variable key');
     Logger.plain('');
 
     final key = Interactive.ask('Environment variable key to remove');
-
-    final schemaFile = File('.env.schema');
-
-    if (!schemaFile.existsSync()) {
-      throw CliException('No schema file found');
-    }
-
-    final lines = schemaFile.readAsLinesSync();
-    if (!lines.any((l) => l.trim() == key)) {
-      throw CliException('Key "$key" not found in schema');
-    }
 
     // Confirm deletion
     Logger.plain('');
@@ -40,9 +28,7 @@ class WizardRemoveEnvKeyCommand implements BaseCommand {
     }
 
     // Remove from schema
-    final updatedLines = lines.where((l) => l.trim() != key).toList();
-    schemaFile.writeAsStringSync(updatedLines.join('\n'));
-
+    Schema.removeKey(key);
     Logger.info('Removed "$key" from schema');
 
     // Remove from all flavors

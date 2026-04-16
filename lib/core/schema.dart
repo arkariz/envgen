@@ -36,14 +36,43 @@ class Schema {
     }).toList();
   }
 
-  /// Initializes the schema file with a default API_URL field.
+  /// Adds a new key to the schema.
   ///
+  /// Throws [CliException] if the key already exists in the schema.
+  static void addKey(String key) {
+    if (_isKeyExists(key)) {
+      throw CliException('Key "$key" already exists in schema');
+    }
+
+    final file = File(path);
+    file.writeAsStringSync('$key\n', mode: FileMode.append);
+  }
+
+  /// Removes a key from the schema.
+  /// 
+  /// Throws [CliException] if the key does not exist in the schema.
+  static void removeKey(String key) {
+    if (!_isKeyExists(key)) {
+      throw CliException('Key "$key" not found in schema');
+    }
+
+    final file = File(path);
+    final lines = file.readAsLinesSync();
+    final filteredLines = lines..removeWhere((l) => l.trim() == key);
+    file.writeAsStringSync(filteredLines.join('\n'));
+  }
+
   /// Creates the .env.schema file if it doesn't exist.
   static void init() {
     final file = File(path);
 
     if (!file.existsSync()) {
-      file.writeAsStringSync('API_URL');
+      file.writeAsStringSync('');
     }
+  }
+
+  /// Checks if a key already exists in the schema.
+  static bool _isKeyExists(String key) {
+    return load().any((field) => field.key == key);
   }
 }

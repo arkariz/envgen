@@ -65,8 +65,7 @@ class WizardInitCommand implements BaseCommand {
     }
 
     if (keyList.isNotEmpty) {
-      final schemaFile = File('.env.schema');
-      schemaFile.writeAsStringSync(keyList.join('\n'));
+      Schema.addKey(keyList.join('\n'));
       Logger.info('Created schema with keys: ${keyList.join(', ')}');
     }
 
