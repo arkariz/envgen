@@ -7,7 +7,8 @@ class EnvListCommand implements BaseCommand {
 
   @override
   void configure(parser) {
-    parser.addOption('flavor', abbr: 'f');
+    parser.addFlag('help', abbr: 'h', help: 'Show help');
+    parser.addOption('flavor', abbr: 'f', help: 'Show variables for a specific flavor');
   }
 
   @override

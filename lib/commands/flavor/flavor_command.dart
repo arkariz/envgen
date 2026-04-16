@@ -37,6 +37,30 @@ class FlavorCommand implements BaseCommand {
       return;
     }
 
+    if (sub['help'] == true) {
+      final helpParser = ArgParser();
+      switch (sub.name) {
+        case 'add':
+          FlavorAddCommand().configure(helpParser);
+          Logger.plain('Usage: envflare_cli flavor add <NAME> [options]');
+          Logger.plain('');
+          Logger.plain(helpParser.usage);
+          return;
+        case 'remove':
+          FlavorRemoveCommand().configure(helpParser);
+          Logger.plain('Usage: envflare_cli flavor remove <NAME> [options]');
+          Logger.plain('');
+          Logger.plain(helpParser.usage);
+          return;
+        case 'list':
+          FlavorListCommand().configure(helpParser);
+          Logger.plain('Usage: envflare_cli flavor list [options]');
+          Logger.plain('');
+          Logger.plain(helpParser.usage);
+          return;
+      }
+    }
+
     switch (sub.name) {
       case 'add':
         await FlavorAddCommand().execute(sub);

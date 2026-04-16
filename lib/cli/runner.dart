@@ -62,6 +62,15 @@ class CliRunner {
         throw CliException('Unknown command: $cmdName');
       }
 
+      if (result.command!['help'] == true) {
+        final subParser = ArgParser();
+        command.configure(subParser);
+        Logger.plain('Usage: envflare_cli $cmdName [options]');
+        Logger.plain('');
+        Logger.plain(subParser.usage);
+        return;
+      }
+
       await command.execute(result.command!);
     } on CliException catch (e) {
       Logger.error(e.message);

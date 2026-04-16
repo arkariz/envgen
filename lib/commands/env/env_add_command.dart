@@ -7,7 +7,9 @@ class EnvAddCommand implements BaseCommand {
   String get name => 'add';
 
   @override
-  void configure(parser) {}
+  void configure(parser) {
+    parser.addFlag('help', abbr: 'h', help: 'Show help');
+  }
 
   @override
   Future<void> execute(args) async {

@@ -7,7 +7,9 @@ class FlavorListCommand implements BaseCommand {
   String get name => 'flavor:list';
 
   @override
-  void configure(parser) {}
+  void configure(parser) {
+    parser.addFlag('help', abbr: 'h', help: 'Show help');
+  }
 
   @override
   Future<void> execute(args) async {
