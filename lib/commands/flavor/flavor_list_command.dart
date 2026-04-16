@@ -13,7 +13,7 @@ class FlavorListCommand implements BaseCommand {
 
   @override
   Future<void> execute(args) async {
-    final flavors = Config.flavors();
+    final flavors = Config.getFlavors();
 
     if (flavors.isEmpty) {
       Logger.error('No flavors found');

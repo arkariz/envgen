@@ -24,5 +24,5 @@ class EnvFile {
     return File(join('.envs', '$flavor.env'));
   }
 
-  static List<String> flavors() => Config.flavors();
+  static List<String> flavors() => Config.getFlavors();
 }

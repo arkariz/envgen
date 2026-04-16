@@ -52,8 +52,7 @@ class WizardInitCommand implements BaseCommand {
             .toList();
 
     // Create flavors config
-    final config = <String, dynamic>{'flavors': flavorList};
-    Config.save(config);
+    Config.save(flavorList);
 
     // Create flavor env files
     for (final flavor in flavorList) {

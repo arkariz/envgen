@@ -12,18 +12,14 @@ class WizardAddFlavorCommand implements BaseCommand {
 
   @override
   Future<void> execute(args) async {
-    final config = Config.load();
+    Config.load();
     final schema = Schema.load();
 
     Logger.plain('🍦 Add a new flavor');
     Logger.plain('');
 
     final name = Interactive.ask('Flavor name');
-
-    final flavors = List<String>.from(config['flavors'] ?? []);
-    if (flavors.contains(name)) {
-      throw CliException('Flavor "$name" already exists');
-    }
+    Config.addFlavor(name);
 
     // Create new flavor with schema keys
     final env = <String, String>{};
@@ -44,10 +40,6 @@ class WizardAddFlavorCommand implements BaseCommand {
     }
 
     writeEnv(EnvFile.file(name), env);
-
-    flavors.add(name);
-    config['flavors'] = flavors;
-    Config.save(config);
 
     Logger.success('Flavor "$name" added');
   }

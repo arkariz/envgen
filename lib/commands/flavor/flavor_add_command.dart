@@ -18,17 +18,7 @@ class FlavorAddCommand implements BaseCommand {
     }
 
     final name = args.arguments.first;
-
-    final config = Config.load();
-    final flavors = List<String>.from(config['flavors'] ?? []);
-
-    if (flavors.contains(name)) {
-      throw CliException('Flavor "$name" already exists');
-    }
-
-    flavors.add(name);
-    config['flavors'] = flavors;
-    Config.save(config);
+    Config.addFlavor(name);
 
     final schema = Schema.load();
     final env = <String, String>{};

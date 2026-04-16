@@ -27,24 +27,49 @@ class Config {
   /// Loads the list of configured flavors from the configuration.
   ///
   /// Returns an empty list if no flavors are configured.
-  static List<String> flavors() {
+  static List<String> getFlavors() {
     final config = load();
-  /// Saves the configuration to the .envflare_cli.json file.
-  ///
-  /// The configuration is saved with proper JSON formatting.
     return List<String>.from(config['flavors'] ?? []);
   }
 
-  static void save(Map<String, dynamic> json) {
+  /// Adds a new flavor to the configuration.
+  /// 
+  /// Throws [CliException] if the flavor already exists.
+  static void addFlavor(String name) {
+    if (_isFlavorExists(name)) {
+      throw CliException('Flavor "$name" already exists');
+    }
+
+    final flavors = getFlavors()..add(name);
+    save(flavors);
+  }
+
+  /// Removes a flavor from the configuration.
+  /// 
+  /// Throws [CliException] if the flavor does not exist.
+  static void removeFlavor(String name) {
+    if (!_isFlavorExists(name)) {
+      throw CliException('Flavor "$name" not found');
+    }
+
+    final flavors = getFlavors()..remove(name);
+    save(flavors);
+  }
+
+  /// Saves the configuration to the .envflare_cli.json file.
+  ///
+  /// The configuration is saved with proper JSON formatting.
+  static void save(List<String> flavors) {
+    final json = <String, dynamic>{'flavors': flavors};
     File(path).writeAsStringSync(
       const JsonEncoder.withIndent('  ').convert(json),
+    );
+  }
+
   /// Initializes the configuration file with default values.
   ///
   /// Creates the .envflare_cli.json file if it doesn't exist,
   /// with an empty flavors array.
-    );
-  }
-
   static void init() {
     final file = File(path);
 
@@ -53,5 +78,12 @@ class Config {
         "flavors": []
       }));
     }
+  }
+
+  /// Checks if a flavor with the given name already exists in the configuration.
+  ///
+  /// Returns true if the flavor exists, false otherwise.
+  static bool _isFlavorExists(String name) {
+    return getFlavors().contains(name);
   }
 }
