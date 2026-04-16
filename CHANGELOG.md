@@ -1,3 +1,12 @@
+## 1.0.0
+
+ - **FIX**: utilize EnvFile to process mutation of env files. ([7f572d82](https://github.com/arkariz/envflare_cli/commit/7f572d82b4fc870d009015da13ae8a9251fa7194))
+ - **FIX**: utilize config to process adding and removing flavor. ([538bf2b5](https://github.com/arkariz/envflare_cli/commit/538bf2b578b89b0bf0653b20695569034cc02354))
+ - **FIX**: utilize Schema to process adding and removing key. ([16e8f9f0](https://github.com/arkariz/envflare_cli/commit/16e8f9f02d5bd79cb939b17dda150b38bc3c474c))
+ - **FEAT**: add wizard command to initialize, add flavor, add, env key, and remove env key. ([19974b44](https://github.com/arkariz/envflare_cli/commit/19974b44bb73da818a6535c69100b2b68aadd4eb))
+ - **FEAT**: add help flag to all commands for improved usability. ([a536047c](https://github.com/arkariz/envflare_cli/commit/a536047c66f71f4ac282fa0be2af1b88ac076141))
+ - **DOCS**: add contribution guidelines to CONTRIBUTION.md. ([442078ff](https://github.com/arkariz/envflare_cli/commit/442078ff60499247fe1468c47f7d93ac0214dc93))
+
 ## 0.1.4
 
  - **FIX**: correct class name from envflare_clierateCommand to EnvGenerateCommand. ([2dcb1d98](https://github.com/arkariz/envflare_cli/commit/2dcb1d9823d1dda0b4264668082c1136209c7285))
