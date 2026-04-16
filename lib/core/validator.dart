@@ -16,7 +16,7 @@ class Validator {
     final invalidFlavors = <String, List<String>>{};
 
     for (final flavor in EnvFile.flavors()) {
-      final env = parseEnv(EnvFile.file(flavor));
+      final env = EnvFile.getEnvKeyPair(flavor);
       final invalidKeys = <String>[];
 
       for (final field in schema) {

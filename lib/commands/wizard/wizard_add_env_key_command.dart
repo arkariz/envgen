@@ -30,10 +30,7 @@ class WizardAddEnvKeyCommand implements BaseCommand {
 
     for (final flavor in flavors) {
       final value = Interactive.ask('  $flavor', required: false);
-      
-      final env = parseEnv(EnvFile.file(flavor));
-      env[key] = value;
-      writeEnv(EnvFile.file(flavor), env);
+      EnvFile.addVariable(flavor: flavor, key: key, value: value);
     }
 
     Logger.success('Key "$key" added to schema and all flavors');

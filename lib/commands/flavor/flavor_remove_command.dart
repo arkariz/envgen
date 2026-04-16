@@ -18,10 +18,8 @@ class FlavorRemoveCommand implements BaseCommand {
 
     final name = args.arguments.first;
     Config.removeFlavor(name);
-
-    final file = EnvFile.file(name);
-    if (file.existsSync()) file.deleteSync();
-
+    EnvFile.deleteEnvFile(name);
+    
     Logger.success('Flavor removed: $name');
   }
 }

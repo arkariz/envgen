@@ -14,14 +14,13 @@ class EnvSyncCommand implements BaseCommand {
   Future<void> execute(args) async {
     final schema = Schema.load();
 
-    for (final f in EnvFile.flavors()) {
-      final env = parseEnv(EnvFile.file(f));
+    for (final flavor in EnvFile.flavors()) {
+      final env = EnvFile.getEnvKeyPair(flavor);
 
       for (final field in schema) {
         env.putIfAbsent(field.key, () => '');
+        EnvFile.addVariable(flavor: flavor, key: field.key, value: env[field.key]);
       }
-
-      writeEnv(EnvFile.file(f), env);
     }
 
     Logger.success('Synced');

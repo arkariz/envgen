@@ -30,19 +30,23 @@ class WizardInitCommand implements BaseCommand {
     Logger.plain('🍦 Enter your flavors (environments)');
     Logger.plain('   Separate multiple flavors with comma (e.g: dev, staging, production)');
     final flavorInput = Interactive.ask('Flavors', defaultValue: 'development,staging,production');
+    if (flavorInput.trim().isEmpty) throw CliException('At least one flavor is required');
     final flavorList = flavorInput
         .split(',')
         .map((f) => f.trim())
         .where((f) => f.isNotEmpty)
         .toList();
 
+    // Create flavors config
     Logger.info('Creating flavors: ${flavorList.join(', ')}');
+    Config.save(flavorList);
 
     // Ask for keys
     Logger.plain('');
     Logger.plain('🔧 Enter environment variable keys');
     Logger.plain('   Separate multiple keys with comma (press Enter to skip)');
-    final keyInput = Interactive.ask('Keys', required: false);
+    final keyInput = Interactive.ask('Keys', required: true);
+    if (keyInput.trim().isEmpty) throw CliException('At least one key is required');
     final keyList = keyInput.isEmpty
         ? <String>[]
         : keyInput
@@ -51,27 +55,17 @@ class WizardInitCommand implements BaseCommand {
             .where((k) => k.isNotEmpty)
             .toList();
 
-    // Create flavors config
-    Config.save(flavorList);
+    // Create schema
+    Schema.addKey(keyList.join('\n'));
+    Logger.info('Created schema with keys: ${keyList.join(', ')}');
 
     // Create flavor env files
-    for (final flavor in flavorList) {
-      final env = <String, String>{};
-      for (final key in keyList) {
-        env[key] = '';
-      }
-      writeEnv(EnvFile.file(flavor), env);
-    }
-
-    if (keyList.isNotEmpty) {
-      Schema.addKey(keyList.join('\n'));
-      Logger.info('Created schema with keys: ${keyList.join(', ')}');
+    for (final key in keyList) {
+      EnvFile.createVariablesForFlavors(key: key);
     }
 
     Logger.plain('');
     Logger.success('Setup complete with flavors: ${flavorList.join(', ')}');
-    if (keyList.isNotEmpty) {
-      Logger.success('Schema keys: ${keyList.join(', ')}');
-    }
+    Logger.success('Schema keys: ${keyList.join(', ')}');
   }
 }

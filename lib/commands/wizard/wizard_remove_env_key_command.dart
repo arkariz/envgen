@@ -16,7 +16,8 @@ class WizardRemoveEnvKeyCommand implements BaseCommand {
     Logger.plain('🗑️  Remove an environment variable key');
     Logger.plain('');
 
-    final key = Interactive.ask('Environment variable key to remove');
+    final schemaKey = Schema.load().map((item) => item.key).toList();
+    final key = Interactive.choose('Environment variable key to remove', schemaKey);
 
     // Confirm deletion
     Logger.plain('');
@@ -32,11 +33,7 @@ class WizardRemoveEnvKeyCommand implements BaseCommand {
     Logger.info('Removed "$key" from schema');
 
     // Remove from all flavors
-    for (final flavor in EnvFile.flavors()) {
-      final env = parseEnv(EnvFile.file(flavor));
-      env.remove(key);
-      writeEnv(EnvFile.file(flavor), env);
-    }
+    EnvFile.removeVariable(key);
 
     Logger.success('Key "$key" removed from schema and all flavors');
   }

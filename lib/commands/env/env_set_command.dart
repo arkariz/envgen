@@ -21,25 +21,19 @@ class EnvSetCommand implements BaseCommand {
     final value = args.arguments[1];
     final flavor = args['flavor'];
 
-    final flavors = EnvFile.flavors();
-    if (flavor != null && !flavors.contains(flavor)) {
-      throw CliException('Flavor "$flavor" not found');
+    final schema = Schema.load();
+    if (!schema.map((field) => field.key).contains(key)) {
+      throw CliException('Key "$key" not found in schema');
     }
 
+    final flavors = EnvFile.flavors();
     if (flavor != null) {
-      final env = parseEnv(EnvFile.file(flavor));
-      env[key] = value;
-      writeEnv(EnvFile.file(flavor), env);
-    } else {
-      if (flavors.isEmpty) {
-        throw CliException('No flavors configured');
-      }
+      if (!flavors.contains(flavor)) throw CliException('Flavor "$flavor" not found');
 
-      for (final f in flavors) {
-        final env = parseEnv(EnvFile.file(f));
-        env[key] = value;
-        writeEnv(EnvFile.file(f), env);
-      }
+      EnvFile.addVariable(flavor: flavor, key: key, value: value);
+    } else {
+      if (flavors.isEmpty) throw CliException('No flavors configured');
+      EnvFile.createVariablesForFlavors(key: key, value: value);
     }
 
     Logger.success('Updated $key');

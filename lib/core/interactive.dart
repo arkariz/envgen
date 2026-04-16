@@ -6,10 +6,10 @@ import 'package:envflare_cli/core/logger.dart';
 /// Utilities to prompt the user for input when running interactively.
 class Interactive {
   static String ask(String message, {String? defaultValue, bool required = true}) {
-    final suffix = defaultValue != null ? ' [$defaultValue]' : '';
+    final defaultFlavor = defaultValue != null ? ' use default flavor ($defaultValue)' : '';
 
     while (true) {
-      stdout.write('$message$suffix: ');
+      stdout.write('$message :$defaultFlavor ');
       final input = stdin.readLineSync();
       if (input == null) {
         throw CliException('Input was closed.');

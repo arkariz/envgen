@@ -12,20 +12,14 @@ class EnvAddCommand implements BaseCommand {
 
   @override
   Future<void> execute(args) async {
-    Schema.load();
-
     if (args.arguments.isEmpty) {
       throw CliException('Usage: envflare_cli add <KEY>');
     }
+    Schema.load();
 
     final key = args.arguments.first;
     Schema.addKey(key);
-
-    for (final f in EnvFile.flavors()) {
-      final env = parseEnv(EnvFile.file(f));
-      env[key] = '';
-      writeEnv(EnvFile.file(f), env);
-    }
+    EnvFile.createVariablesForFlavors(key: key);
 
     Logger.success('Added key: $key');
   }

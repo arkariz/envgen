@@ -19,15 +19,10 @@ class FlavorAddCommand implements BaseCommand {
 
     final name = args.arguments.first;
     Config.addFlavor(name);
-
-    final schema = Schema.load();
-    final env = <String, String>{};
-
-    for (final field in schema) {
-      env[field.key] = '';
+    
+    for (final field in Schema.load()) {
+      EnvFile.addVariable(flavor: name, key: field.key);
     }
-
-    writeEnv(EnvFile.file(name), env);
 
     Logger.success('Flavor added: $name');
   }

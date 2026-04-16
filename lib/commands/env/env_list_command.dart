@@ -15,14 +15,16 @@ class EnvListCommand implements BaseCommand {
   Future<void> execute(args) async {
     final flavor = args['flavor'];
 
+    // If flavor is specified, show variables for that flavor only
     if (flavor != null) {
-      parseEnv(EnvFile.file(flavor)).forEach((k, v) => Logger.info('$k=$v'));
+      EnvFile.getEnvKeyPair(flavor).forEach((key, value) => Logger.info('$key=$value'));
       return;
     }
-
-    for (final f in EnvFile.flavors()) {
-      Logger.info('--- $f ---');
-      parseEnv(EnvFile.file(f)).forEach((k, v) => Logger.info('$k=$v'));
+    
+    // Otherwise, show variables for all flavors
+    for (final flavor in EnvFile.flavors()) {
+      Logger.info('--- $flavor ---');
+      EnvFile.getEnvKeyPair(flavor).forEach((key, value) => Logger.info('$key=$value'));
     }
   }
 }

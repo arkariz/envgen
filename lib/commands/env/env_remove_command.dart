@@ -20,12 +20,7 @@ class EnvRemoveCommand implements BaseCommand {
 
     final key = args.arguments.first;
     Schema.removeKey(key);
-
-    for (final f in EnvFile.flavors()) {
-      final env = parseEnv(EnvFile.file(f));
-      env.remove(key);
-      writeEnv(EnvFile.file(f), env);
-    }
+    EnvFile.removeVariable(key);
 
     Logger.success('Removed key: $key');
   }

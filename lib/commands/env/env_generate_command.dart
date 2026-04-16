@@ -16,6 +16,8 @@ class EnvGenerateCommand implements BaseCommand {
   Future<void> execute(args) async {
     EnviedGenerator.generate();
 
+    Logger.info('Running build_runner to generate code...');
+
     final result = await Process.run(
       'dart',
       ['run', 'build_runner', 'build'],
