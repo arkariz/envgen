@@ -4,6 +4,7 @@ import 'package:envflare_cli/commands/index.dart';
 void runCLI(List<String> args) {
   final registry = CommandRegistry()
     ..register(InitCommand())
+    ..register(WizardCommand())
     ..register(EnvAddCommand())
     ..register(EnvRemoveCommand())
     ..register(EnvSetCommand())

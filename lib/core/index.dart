@@ -2,6 +2,7 @@ export 'config.dart';
 export 'cli_exception.dart';
 export 'env_file.dart';
 export 'envied_generator.dart';
+export 'interactive.dart';
 export 'logger.dart';
 export 'parser.dart';
 export 'schema.dart';

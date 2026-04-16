@@ -11,3 +11,4 @@ export 'env/env_sync_command.dart';
 export 'env/env_validate_command.dart';
 export 'env/env_generate_command.dart';
 export 'init_command.dart';
+export 'wizard_command.dart';
