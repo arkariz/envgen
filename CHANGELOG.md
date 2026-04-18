@@ -1,3 +1,8 @@
+## 1.0.1
+
+ - **FIX**: add obfuscation to Envied decorators for flavors. ([0e61ccc1](https://github.com/arkariz/envflare_cli/commit/0e61ccc17deac32136c29c9b81afae3d3da3ef37))
+ - **DOCS**: update README for improved clarity and feature presentation. ([76beeaba](https://github.com/arkariz/envflare_cli/commit/76beeaba8e92549a234c3caffe4af83934488108))
+
 ## 1.0.0
 
  - **FIX**: utilize EnvFile to process mutation of env files. ([7f572d82](https://github.com/arkariz/envflare_cli/commit/7f572d82b4fc870d009015da13ae8a9251fa7194))
