@@ -32,7 +32,7 @@ class EnviedGenerator {
     // Generate @Envied decorators for each flavor
     for (final flavor in flavors) {
       final className = 'Env${_cap(flavor)}';
-      b.writeln("@Envied(path: '.envs/$flavor.env', name: '$className')");
+      b.writeln("@Envied(path: '.envs/$flavor.env', name: '$className', obfuscate: true)");
     }
 
     b.writeln("final class Env {");
